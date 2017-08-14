@@ -1,15 +1,11 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
+import { GenresComponent } from './genres/genres.component';
 
-const routes: Routes = [
-  {
-    path: '',
-    children: []
-  }
-];
+const routes = [{ path: 'genres', component: GenresComponent }];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes, { enableTracing: true })], // <-- debugging purposes only
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

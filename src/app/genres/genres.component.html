@@ -1,0 +1,13 @@
+<div class="container">
+
+    <div class="card card-block" style="width: 20rem;" *ngFor="let genre of genres">
+      <div class="card-body" (click)="doSomething(genre)">
+        <h4 class="card-title">Genre: {{ genre.genre }}</h4>
+        <p class="card-text">Track Count: {{genre.count}}</p>
+        <a href="#" class="card-link">Card link</a>
+        <a href="#" class="card-link">Another link</a>
+      </div>
+
+    </div>
+
+</div>

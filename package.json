@@ -1,11 +1,11 @@
 {
   "name": "mixxxwizardng",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build && node --inspect server.js",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -21,8 +21,11 @@
     "@angular/platform-browser": "^4.0.0",
     "@angular/platform-browser-dynamic": "^4.0.0",
     "@angular/router": "^4.0.0",
+    "body-parser": "^1.17.2",
     "core-js": "^2.4.1",
+    "express": "^4.15.4",
     "rxjs": "^5.1.0",
+    "sqlite-async": "^1.0.10",
     "zone.js": "^0.8.4"
   },
   "devDependencies": {
