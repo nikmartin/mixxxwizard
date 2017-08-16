@@ -10,3 +10,6 @@ The Mixxx Library Management Swiss Army Knife
   * rename
   * delete
   * merge
+* statistics
+  * play stats
+  * genre stats
