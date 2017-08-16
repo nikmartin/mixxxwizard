@@ -1,13 +1,49 @@
 <div class="container">
-
-    <div class="card card-block" style="width: 20rem;" *ngFor="let genre of genres">
-      <div class="card-body" (click)="doSomething(genre)">
-        <h4 class="card-title">Genre: {{ genre.genre }}</h4>
-        <p class="card-text">Track Count: {{genre.count}}</p>
-        <a href="#" class="card-link">Card link</a>
-        <a href="#" class="card-link">Another link</a>
+  <div class="row">
+    <div class="col-4 drop" dnd-droppable (onDropSuccess)="setDestGenre($event)">
+      <div class="card card-block">
+        <div class="card-body">
+          <h4 class="card-title">Destination Genre</h4>
+          <p class="card-text">You can drag a genre here that you want to combine several genres into.</p>
+        </div>
       </div>
-
+      <div class="card card-block"  *ngIf="destGenre">
+        <div class="card-body">
+          <h4 class="card-title">Genre: {{ destGenre.genre }}</h4>
+          <p class="card-text">Track Count: {{destGenre.count}}</p>
+        </div>
+      </div>
+      <button type="button" class="btn btn-primary" (click)="doMerge()">Combine Genres</button>
     </div>
+    <div class="col-4 drop">
+      <div class="card card-block">
+        <div class="card-body">
+          <h4 class="card-title">Genres in your Library</h4>
+          <p class="card-text">These are all the genres in your library</p>
+        </div>
+      </div>
+      <div class="card card-block" *ngFor="let genre of genres" dnd-draggable [dragEnabled]="true" [dragData]="genre" style="width: 20rem;">
+        <div class="card-body">
+          <h4 class="card-title">{{ genre.genre || [none] }}</h4>
+          <p class="card-text">Tracks: {{genre.count}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-4 drop" dnd-droppable (onDropSuccess)="setDupeGenre($event)">
+      <div class="card card-block">
+        <div class="card-body">
+          <h4 class="card-title">Genres to Combine</h4>
+          <p class="card-text">Genres dropped here will be combined into the destination genre.</p>
+        </div>
+      </div>
+      <div class="card card-block" *ngFor="let dup of dupeGenres">
+        <div class="card-body">
+          <h4 class="card-title">Genre: {{ dup.genre }}</h4>
+          <p class="card-text">Track Count: {{dup.count}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
 </div>
